@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
   state = {
-    count: 0
+    count: this.props.value
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleIncrement = this.handleIncrement.bind(this); //will always reference the current counter object
   }
 
@@ -17,6 +17,8 @@ class Counter extends Component {
 
 
   render() {
+    console.log('props', this.props.value);
+
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
